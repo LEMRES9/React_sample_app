@@ -6,8 +6,12 @@ class Blog extends React.Component {
         super(props)
         this.state = {
             isPublished: false,
-            order: 1
+            count: 0
         }
+    }
+    //ボタンをクリックされた時　カウントを１つ上げる
+    componentDidMount(){
+        document.getElementById('counter').addEventListener('click',() => this.countUp())
     }
 
     //公開状態を反転させる
@@ -17,13 +21,19 @@ class Blog extends React.Component {
         })
     };
 
+    countUp = () => {
+        this.setState({
+            count: this.state.count + 1
+        })
+    };
+
     render() {
         return (
             <React.Fragment>
                 <Article title={"Reactの使い方"}
                 isPublished={this.state.isPublished}
                 toggle={() => this.togglePublished()}
-                order={this.state.order}
+                count={this.state.count}
                 />
             </React.Fragment>
         )

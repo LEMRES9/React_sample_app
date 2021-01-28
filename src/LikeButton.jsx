@@ -24,6 +24,7 @@ const LikeButton = () => {
             document.getElementById('counter').removeEventListener('click',countUp);
         }
     });
+    // 第二引数　依存関係のワーニングが出る。　原因は第二引数を使用するとuseEffectが動く
     // }, [Limit]);
 
     //こっちでも動く
@@ -38,6 +39,7 @@ const LikeButton = () => {
             <button id={"counter"} >
                 いいね数 (最大9): {count}
             </button>
+            {/* 第二引数を使用するためのボタン　押すといいねが１回だけ追加で押せるようになる */}
             {/* <button onClick={() => release(!Limit)}>解除</button> */}
         </div>
     )
